@@ -13,11 +13,22 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
         <archetype-packaging.version>3.0.1</archetype-packaging.version>
     </properties>
 
-
     <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${maven-resources-plugin.version}</version>
+                <configuration>
+                    <includeEmptyDirs>true</includeEmptyDirs>
+                </configuration>
+            </plugin>
+        </plugins>
+
         <extensions>
             <extension>
                 <groupId>org.apache.maven.archetype</groupId>

@@ -15,12 +15,12 @@
     <dependencies>
         <dependency>
             <groupId>${groupId}</groupId>
-            <artifactId>${rootArtifactId}-remote</artifactId>
+            <artifactId>${rootArtifactId}-infrastructure</artifactId>
         </dependency>
 
         <dependency>
             <groupId>${groupId}</groupId>
-            <artifactId>${rootArtifactId}-repository</artifactId>
+            <artifactId>${rootArtifactId}-domain</artifactId>
         </dependency>
     </dependencies>
 </project>

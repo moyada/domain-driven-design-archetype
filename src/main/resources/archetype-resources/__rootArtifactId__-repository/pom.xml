@@ -11,4 +11,11 @@
     <artifactId>${artifactId}</artifactId>
 
     <packaging>jar</packaging>
+    
+    <dependencies>
+        <dependency>
+            <groupId>${groupId}</groupId>
+            <artifactId>${rootArtifactId}-domain</artifactId>
+        </dependency>
+    </dependencies>
 </project>

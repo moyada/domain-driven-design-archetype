@@ -5,72 +5,45 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         name="DDD-archetype">
 
-    <!--<requiredProperties>-->
-        <!--<requiredProperty key="application">-->
-            <!--<defaultValue>DDD-archetype</defaultValue>-->
-        <!--</requiredProperty>-->
-    <!--</requiredProperties>-->
-
-    <!--<fileSets>-->
-        <!--<fileSet encoding="UTF-8" filtered="true" packaged="false">-->
-            <!--<directory>src/main/java</directory>-->
-            <!--&lt;!&ndash;<includes>&ndash;&gt;-->
-                <!--&lt;!&ndash;<include>**/*.java</include>&ndash;&gt;-->
-            <!--&lt;!&ndash;</includes>&ndash;&gt;-->
-        <!--</fileSet>-->
-        <!--<fileSet filtered="true">-->
-            <!--<directory>src/main/resources</directory>-->
-        <!--</fileSet>-->
-        <!--<fileSet filtered="true" packaged="false">-->
-            <!--<directory>src/test/java</directory>-->
-        <!--</fileSet>-->
-        <!--<fileSet filtered="true">-->
-            <!--<directory>src/test/resources</directory>-->
-        <!--</fileSet>-->
-    <!--</fileSets>-->
+    <requiredProperties>
+        <requiredProperty key="package">
+            <defaultValue>${groupId}.${artifactId}</defaultValue>
+        </requiredProperty>
+    </requiredProperties>
 
     <modules>
-        <module id="${rootArtifactId}-api" dir="__rootArtifactId__-api" name="${rootArtifactId}-api">
+        <module id="${rootArtifactId}-domain" dir="__rootArtifactId__-domain" name="${rootArtifactId}-domain">
             <fileSets>
                 <fileSet encoding="UTF-8" filtered="true" packaged="true">
                     <directory>src/main/java/</directory>
 
                     <includes>
-                        <include>api/Test.java</include>
+                        <include>**/*</include>
                     </includes>
                 </fileSet>
             </fileSets>
         </module>
 
-        <module id="${rootArtifactId}-gateways" dir="__rootArtifactId__-gateways" name="${rootArtifactId}-gateways">
+        <module id="${rootArtifactId}-service" dir="__rootArtifactId__-service" name="${rootArtifactId}-service">
             <fileSets>
                 <fileSet encoding="UTF-8" filtered="true" packaged="true">
-                    <directory>src/main/java</directory>
+                    <directory>src/main/java/</directory>
+
+                    <includes>
+                        <include>**/*</include>
+                    </includes>
                 </fileSet>
             </fileSets>
         </module>
 
-        <module id="${rootArtifactId}-domain" dir="__rootArtifactId__-domain" name="${rootArtifactId}-domain">
+        <module id="${rootArtifactId}-application" dir="__rootArtifactId__-application" name="${rootArtifactId}-application">
             <fileSets>
                 <fileSet encoding="UTF-8" filtered="true" packaged="true">
-                    <directory>src/main/java</directory>
-                </fileSet>
-            </fileSets>
-        </module>
+                    <directory>src/main/java/</directory>
 
-        <module id="${rootArtifactId}-core" dir="__rootArtifactId__-core" name="${rootArtifactId}-core">
-            <fileSets>
-                <fileSet encoding="UTF-8" filtered="true" packaged="true">
-                    <directory>src/main/java</directory>
-                </fileSet>
-                <fileSet encoding="UTF-8" filtered="true">
-                    <directory>src/main/resources</directory>
-                </fileSet>
-                <fileSet encoding="UTF-8" filtered="true" packaged="false">
-                    <directory>src/test/java</directory>
-                </fileSet>
-                <fileSet encoding="UTF-8" filtered="true">
-                    <directory>src/test/resources</directory>
+                    <includes>
+                        <include>**/*</include>
+                    </includes>
                 </fileSet>
             </fileSets>
         </module>
@@ -92,7 +65,7 @@
             </fileSets>
         </module>
 
-        <module id="${rootArtifactId}-repositories" dir="__rootArtifactId__-repositories" name="${rootArtifactId}-repositories">
+        <module id="${rootArtifactId}-repository" dir="__rootArtifactId__-repository" name="${rootArtifactId}-repository">
             <fileSets>
                 <fileSet encoding="UTF-8" filtered="true" packaged="true">
                     <directory>src/main/java</directory>
@@ -108,5 +81,41 @@
                 </fileSet>
             </fileSets>
         </module>
+
+        <module id="${rootArtifactId}-remote" dir="__rootArtifactId__-remote" name="${rootArtifactId}-remote">
+            <fileSets>
+                <fileSet encoding="UTF-8" filtered="true" packaged="true">
+                    <directory>src/main/java</directory>
+                </fileSet>
+                <fileSet encoding="UTF-8" filtered="true">
+                    <directory>src/main/resources</directory>
+                </fileSet>
+                <fileSet encoding="UTF-8" filtered="true" packaged="false">
+                    <directory>src/test/java</directory>
+                </fileSet>
+                <fileSet encoding="UTF-8" filtered="true">
+                    <directory>src/test/resources</directory>
+                </fileSet>
+            </fileSets>
+        </module>
+
+        <module id="${rootArtifactId}-client" dir="__rootArtifactId__-client" name="${rootArtifactId}-client">
+            <fileSets>
+                <fileSet encoding="UTF-8" filtered="true" packaged="true">
+                    <directory>src/main/java</directory>
+                </fileSet>
+                <fileSet encoding="UTF-8" filtered="true">
+                    <directory>src/main/resources</directory>
+                </fileSet>
+                <fileSet encoding="UTF-8" filtered="true" packaged="false">
+                    <directory>src/test/java</directory>
+                </fileSet>
+                <fileSet encoding="UTF-8" filtered="true">
+                    <directory>src/test/resources</directory>
+                </fileSet>
+            </fileSets>
+        </module>
+
+        <module id="${rootArtifactId}-bom" dir="__rootArtifactId__-bom" name="${rootArtifactId}-bom"/>
     </modules>
 </archetype-descriptor>

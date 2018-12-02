@@ -8,6 +8,60 @@
 
     <packaging>pom</packaging>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>${groupId}</groupId>
+                <artifactId>${artifactId}-bom</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>${groupId}</groupId>
+                <artifactId>${artifactId}-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${groupId}</groupId>
+                <artifactId>${artifactId}-application</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${groupId}</groupId>
+                <artifactId>${artifactId}-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${groupId}</groupId>
+                <artifactId>${artifactId}-remote</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${groupId}</groupId>
+                <artifactId>${artifactId}-repository</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${groupId}</groupId>
+                <artifactId>${artifactId}-infrastructure</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${groupId}</groupId>
+                <artifactId>${artifactId}-domain</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <build>
         <resources>
             <resource>
@@ -16,9 +70,9 @@
         </resources>
 
         <testResources>
-            <resource>
+            <testResource>
                 <directory>src/test/resources</directory>
-            </resource>
+            </testResource>
         </testResources>
     </build>
 </project>
