@@ -3,13 +3,15 @@ domain-driven-design-archetype
 基于领域驱动设计六边形架构实现的 Maven 原型模版
 
 ### 构建方式
+====================
 
-mvn archetype:generate \
-    -DarchetypeGroupId=cn.moyada \
-    -DarchetypeArtifactId=domain-driven-design-archetype \
-    -DarchetypeVersion=1.0-SNAPSHOT
+    mvn archetype:generate \
+        -DarchetypeGroupId=cn.moyada \
+        -DarchetypeArtifactId=domain-driven-design-archetype \
+        -DarchetypeVersion=1.0-SNAPSHOT
 
 ### 层次概述
+====================
 
 #### bom
 管理外部依赖
@@ -23,7 +25,7 @@ mvn archetype:generate \
 #### repository
 数据资源层，负责提供获取数据资源的实现，如 mysql 的数据操作。
 
-#### remote
+#### gateway
 远程资源层，负责提供获取协调资源的实现，如 dubbo 服务的调用。
 
 #### infrastructure

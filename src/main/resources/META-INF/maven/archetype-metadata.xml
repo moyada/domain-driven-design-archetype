@@ -1,15 +1,45 @@
 <archetype-descriptor
-        xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd
-        http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
         xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0
+        http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
         name="DDD-archetype">
 
     <requiredProperties>
-        <requiredProperty key="package">
-            <defaultValue>${groupId}.${artifactId}</defaultValue>
+
+        <requiredProperty key="groupId">
+            <validationRegex><![CDATA[^[a-zA-Z][a-zA-Z0-9\._-]*[a-zA-Z0-9]+$]]></validationRegex>
         </requiredProperty>
+
+        <requiredProperty key="artifactId">
+            <validationRegex><![CDATA[^[a-zA-Z][a-zA-Z0-9\._-]*[a-zA-Z0-9]+$]]></validationRegex>
+        </requiredProperty>
+
+        <requiredProperty key="package">
+            <defaultValue>
+                ${groupId.replaceAll("\-+", ".").replaceAll("\_+", ".")}.${artifactId.replaceAll("\-+", ".").replaceAll("\_+", ".")}
+            </defaultValue>
+        </requiredProperty>
+
+        <requiredProperty key="gitignore">
+            <defaultValue>.gitignore</defaultValue>
+        </requiredProperty>
+
+        <requiredProperty key="readme">
+            <defaultValue>README.md</defaultValue>
+        </requiredProperty>
+
     </requiredProperties>
+
+    <fileSets>
+        <fileSet>
+            <directory></directory>
+            <includes>
+                <include>__gitignore__</include>
+                <include>__readme__</include>
+            </includes>
+        </fileSet>
+    </fileSets>
 
     <modules>
         <module id="${rootArtifactId}-domain" dir="__rootArtifactId__-domain" name="${rootArtifactId}-domain">
@@ -82,7 +112,7 @@
             </fileSets>
         </module>
 
-        <module id="${rootArtifactId}-remote" dir="__rootArtifactId__-remote" name="${rootArtifactId}-remote">
+        <module id="${rootArtifactId}-gateway" dir="__rootArtifactId__-gateway" name="${rootArtifactId}-gateway">
             <fileSets>
                 <fileSet encoding="UTF-8" filtered="true" packaged="true">
                     <directory>src/main/java</directory>

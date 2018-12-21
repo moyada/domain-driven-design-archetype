@@ -38,7 +38,7 @@
 
             <dependency>
                 <groupId>${groupId}</groupId>
-                <artifactId>${artifactId}-remote</artifactId>
+                <artifactId>${artifactId}-gateway</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

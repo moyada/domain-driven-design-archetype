@@ -2,8 +2,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    #set ($index = $artifactId.indexOf('-') + 1)
-    #set ($subArtifactId = $artifactId.substring($index))
+    #set ($index1 = $artifactId.lastIndexOf('-') + 1)
+    #set ($index2 = $artifactId.lastIndexOf('_') + 1)
+    #if ($index1 > $index2)
+    #set ($subArtifactId = $artifactId.substring($index1))
+    #else
+    #set ($subArtifactId = $artifactId.substring($index2))
+    #end
 
     <parent>
         <groupId>${groupId}</groupId>

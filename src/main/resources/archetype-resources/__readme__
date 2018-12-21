@@ -12,7 +12,7 @@
 ## repository
 数据资源层，负责提供获取数据资源的实现，如 mysql 的数据操作。
 
-## remote
+## gateway
 远程资源层，负责提供获取协调资源的实现，如 dubbo 服务的调用。
 
 ## infrastructure

@@ -15,6 +15,11 @@
     <dependencies>
         <dependency>
             <groupId>${groupId}</groupId>
+            <artifactId>${rootArtifactId}-domain</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>${groupId}</groupId>
             <artifactId>${rootArtifactId}-service</artifactId>
         </dependency>
     </dependencies>

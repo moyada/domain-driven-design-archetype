@@ -12,15 +12,4 @@
 
     <packaging>jar</packaging>
 
-    <dependencies>
-        <dependency>
-            <groupId>${groupId}</groupId>
-            <artifactId>${rootArtifactId}-remote</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>${groupId}</groupId>
-            <artifactId>${rootArtifactId}-repository</artifactId>
-        </dependency>
-    </dependencies>
 </project>
