@@ -8,11 +8,20 @@
     <requiredProperties>
 
         <requiredProperty key="groupId">
+            <defaultValue>${groupId}</defaultValue>
             <validationRegex><![CDATA[^[a-zA-Z][a-zA-Z0-9\._-]*[a-zA-Z0-9]+$]]></validationRegex>
         </requiredProperty>
 
         <requiredProperty key="artifactId">
             <validationRegex><![CDATA[^[a-zA-Z][a-zA-Z0-9\._-]*[a-zA-Z0-9]+$]]></validationRegex>
+        </requiredProperty>
+
+        <requiredProperty key="defaultVersion">
+            <defaultValue>0.0.1-SNAPSHOT</defaultValue>
+        </requiredProperty>
+
+        <requiredProperty key="version">
+            <defaultValue>${defaultVersion}</defaultValue>
         </requiredProperty>
 
         <requiredProperty key="package">
