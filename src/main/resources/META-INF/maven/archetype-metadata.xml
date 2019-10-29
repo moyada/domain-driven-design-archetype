@@ -51,6 +51,23 @@
     </fileSets>
 
     <modules>
+        <module id="${rootArtifactId}-assembly" dir="__rootArtifactId__-assembly" name="${rootArtifactId}-assembly">
+            <fileSets>
+                <fileSet encoding="UTF-8" filtered="true" packaged="true">
+                    <directory>src/main/java</directory>
+                </fileSet>
+                <fileSet encoding="UTF-8" filtered="true">
+                    <directory>src/main/resources</directory>
+                </fileSet>
+                <fileSet encoding="UTF-8" filtered="true" packaged="false">
+                    <directory>src/test/java</directory>
+                </fileSet>
+                <fileSet encoding="UTF-8" filtered="true">
+                    <directory>src/test/resources</directory>
+                </fileSet>
+            </fileSets>
+        </module>
+
         <module id="${rootArtifactId}-domain" dir="__rootArtifactId__-domain" name="${rootArtifactId}-domain">
             <fileSets>
                 <fileSet encoding="UTF-8" filtered="true" packaged="true">

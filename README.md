@@ -17,6 +17,6 @@ domain-driven-design-archetype
 ====================
 
     mvn archetype:generate \
-        -DarchetypeGroupId=cn.moyada \
+        -DarchetypeGroupId=io.moyada \
         -DarchetypeArtifactId=domain-driven-design-archetype \
         -DarchetypeVersion=1.0-SNAPSHOT

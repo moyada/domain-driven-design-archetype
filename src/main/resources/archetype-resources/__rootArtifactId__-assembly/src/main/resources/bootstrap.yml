@@ -1,0 +1,12 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: ${rootArtifactId}
+
+logging:
+  path: ${user.home}/logs/${spring.application.name}
+  level:
+    ${package}: INFO
+  file: ${logging.path}/${spring.application.name}.log

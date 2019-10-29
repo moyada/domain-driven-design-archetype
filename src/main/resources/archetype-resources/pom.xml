@@ -20,6 +20,12 @@
 
             <dependency>
                 <groupId>${groupId}</groupId>
+                <artifactId>${artifactId}-assembly</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${groupId}</groupId>
                 <artifactId>${artifactId}-client</artifactId>
                 <version>${project.version}</version>
             </dependency>

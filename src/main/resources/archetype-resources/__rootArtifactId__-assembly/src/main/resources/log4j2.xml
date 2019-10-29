@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO" monitorInterval="30">
+    <Properties>
+        <property name="baseDir" value="logs"/>
+
+        <Property name="logPattern">
+            %d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n
+        </Property>
+
+        <property name="date">
+            %d{yyyy-MM-dd}
+        </property>
+    </Properties>
+
+    <Appenders>
+        <Console name="STDOUT" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${logPattern}"/>
+        </Console>
+
+        <RollingRandomAccessFile name="LogFile" fileName="${baseDir}/out.log"
+                                 immediateFlush="true" bufferedIO="false"
+                                 filePattern="${baseDir}/out-${date}-%i.log.gz">
+            <PatternLayout>
+                <Pattern>${logPattern}</Pattern>
+            </PatternLayout>
+            <!--<Filters>-->
+            <!--&lt;!&ndash; 只记录ERROR级别日志信息，程序打印的其他信息不会被记录 &ndash;&gt;-->
+            <!--&lt;!&ndash; 此level设置的日志级别，是过滤日志文件中打印出的日志信息，和Root的level有所区别 &ndash;&gt;-->
+            <!--<ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY" />-->
+            <!--</Filters>-->
+            <Policies>
+                <OnStartupTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="10MB" />
+                <!-- 每天创建一个日志文件 -->
+                <TimeBasedTriggeringPolicy interval="1" />
+            </Policies>
+            <!--自动删除超过7天的日志压缩文件-->
+            <!--<DefaultRolloverStrategy>-->
+            <!--<Delete basePath="${baseDir}" maxDepth="2">-->
+            <!--<IfFileName glob="out-*.log.gz"/>-->
+            <!--<IfLastModified age="7d"/>-->
+            <!--</Delete>-->
+            <!--</DefaultRolloverStrategy>-->
+            <DefaultRolloverStrategy max="7"/>
+        </RollingRandomAccessFile>
+
+        <Async name="AsyncLog">
+            <AppenderRef ref="LogFile" />
+            <DisruptorBlockingQueue/>
+        </Async>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="${package}" level="info" additivity="false">
+            <AppenderRef ref="AsyncLog" />
+        </Logger>
+
+        <Root level="info">
+            <AppenderRef ref="STDOUT" />
+        </Root>
+    </Loggers>
+</Configuration>
